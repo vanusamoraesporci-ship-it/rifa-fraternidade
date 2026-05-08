@@ -39,6 +39,24 @@
     .premio-item { background: #f5f0ea; border-radius: 10px; padding: 10px; text-align: center; }
     .premio-num { font-size: 11px; color: #888780; margin-bottom: 4px; }
     .premio-val { font-size: 15px; font-weight: 700; color: #0F6E56; }
+
+    /* Card PIX */
+    .card-pix { background: #E1F5EE; border: 1.5px solid #5DCAA5; border-radius: 16px; padding: 1.25rem; margin-bottom: 1rem; }
+    .card-pix .card-title { color: #0F6E56; }
+    .pix-row { display: flex; align-items: center; gap: 12px; }
+    .pix-icon { font-size: 32px; flex-shrink: 0; }
+    .pix-info { flex: 1; }
+    .pix-label { font-size: 11px; color: #0F6E56; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .pix-chave { font-size: 18px; font-weight: 700; color: #2c2c2a; letter-spacing: 0.5px; }
+    .pix-nome { font-size: 12px; color: #5f5e5a; margin-top: 2px; }
+    .btn-copiar {
+      background: #0F6E56; color: #fff; border: none; border-radius: 10px;
+      padding: 8px 14px; font-size: 12px; font-weight: 700; font-family: 'Lato', sans-serif;
+      cursor: pointer; flex-shrink: 0; transition: opacity 0.15s;
+    }
+    .btn-copiar:hover { opacity: 0.88; }
+    .pix-aviso { font-size: 12px; color: #0F6E56; margin-top: 10px; background: #fff; border-radius: 8px; padding: 8px 12px; }
+
     .field { margin-bottom: 14px; }
     .field:last-child { margin-bottom: 0; }
     .field label { display: block; font-size: 13px; color: #5f5e5a; margin-bottom: 6px; font-weight: 700; }
@@ -47,7 +65,7 @@
       font-size: 15px; font-family: 'Lato', sans-serif; color: #2c2c2a; background: #fff;
       outline: none; transition: border-color 0.15s;
     }
-    .field input[type="text"]:focus, .field input[type="tel"]:focus { border-color: #0F6E56; }
+    .field input:focus { border-color: #0F6E56; }
     .upload-area {
       border: 2px dashed #d3d1c7; border-radius: 10px; padding: 20px; text-align: center;
       cursor: pointer; transition: border-color 0.15s, background 0.15s; position: relative;
@@ -82,17 +100,10 @@
     .saving { display: none; font-size: 13px; color: #888780; text-align: center; margin-top: 8px; }
     .progress-bar-wrap { display: none; background: #e0ddd6; border-radius: 10px; height: 6px; margin-top: 10px; overflow: hidden; }
     .progress-bar { height: 100%; background: #0F6E56; border-radius: 10px; width: 0%; transition: width 0.3s; }
+    .info { font-size: 12px; color: #888780; text-align: center; margin-top: 10px; }
 
-    /* Tela de sucesso com botão WhatsApp */
-    .success-box {
-      display: none;
-      background: #fff;
-      border: 1px solid #e0ddd6;
-      border-radius: 16px;
-      padding: 1.5rem 1.25rem;
-      text-align: center;
-      margin-top: 1rem;
-    }
+    /* Tela de sucesso */
+    .success-box { display: none; background: #fff; border: 1px solid #e0ddd6; border-radius: 16px; padding: 1.5rem 1.25rem; text-align: center; margin-top: 1rem; }
     .success-box .check { font-size: 40px; margin-bottom: 10px; }
     .success-box h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: #2c2c2a; margin-bottom: 6px; }
     .success-box p { font-size: 13px; color: #5f5e5a; margin-bottom: 16px; }
@@ -104,7 +115,6 @@
     }
     .btn-whatsapp:hover { opacity: 0.92; }
     .wpp-icon { width: 22px; height: 22px; flex-shrink: 0; }
-    .info { font-size: 12px; color: #888780; text-align: center; margin-top: 10px; }
     .footer { text-align: center; margin-top: 2rem; font-size: 12px; color: #888780; }
     .footer a { color: #0F6E56; text-decoration: none; }
   </style>
@@ -118,7 +128,6 @@
       <p>Rifa solidária · Sorteio: 11 de agosto de 2026</p>
     </div>
 
-    <!-- FORMULÁRIO -->
     <div id="form-area">
       <div class="card">
         <p class="card-title">Prêmios</p>
@@ -126,6 +135,23 @@
           <div class="premio-item"><div class="premio-num">1º prêmio</div><div class="premio-val">R$ 1.000</div></div>
           <div class="premio-item"><div class="premio-num">2º prêmio</div><div class="premio-val">R$ 500</div></div>
           <div class="premio-item"><div class="premio-num">3º prêmio</div><div class="premio-val">R$ 500</div></div>
+        </div>
+      </div>
+
+      <!-- PIX -->
+      <div class="card-pix">
+        <p class="card-title">💳 Como pagar</p>
+        <div class="pix-row">
+          <div class="pix-icon">🏦</div>
+          <div class="pix-info">
+            <div class="pix-label">Chave Pix — CNPJ</div>
+            <div class="pix-chave" id="chave-pix">55.079.597/0001-01</div>
+            <div class="pix-nome">Fraternidade Filhas de Santa Clara</div>
+          </div>
+          <button class="btn-copiar" onclick="copiarChave()">Copiar</button>
+        </div>
+        <div class="pix-aviso">
+          📌 Faça o Pix, salve o comprovante e preencha o formulário abaixo.
         </div>
       </div>
 
@@ -181,7 +207,7 @@
       <div class="progress-bar-wrap" id="progress-wrap">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
-      <p class="info">Após registrar, você será direcionada para confirmar pelo WhatsApp.</p>
+      <p class="info">Após registrar, toque no botão para confirmar pelo WhatsApp.</p>
     </div>
 
     <!-- TELA DE SUCESSO -->
@@ -202,15 +228,23 @@
       <p>📲 <a href="https://instagram.com/fraternidadefsc">@fraternidadefsc</a></p>
       <p style="margin-top:6px;">R. Antônio Pádua Vasconcelos, 140 · João Pessoa/PB</p>
     </div>
-
   </div>
 
   <script>
     var qty = 1;
     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzZEV93ltG5cg0e6TusJqoofbAIF1XD_jpeED2blvK3Rn12McJuraU-RWDJmu_zWxeI/exec';
-    var arquivoBase64 = '';
-    var tipoArquivo = '';
-    var nomeArquivo = '';
+    var arquivoBase64 = '', tipoArquivo = '', nomeArquivo = '';
+
+    function copiarChave() {
+      var chave = document.getElementById('chave-pix').textContent;
+      navigator.clipboard.writeText(chave).then(function() {
+        var btn = document.querySelector('.btn-copiar');
+        btn.textContent = '✅ Copiado!';
+        setTimeout(function() { btn.textContent = 'Copiar'; }, 2000);
+      }).catch(function() {
+        alert('Chave Pix: ' + chave);
+      });
+    }
 
     function changeQty(delta) {
       qty = Math.max(1, qty + delta);
@@ -221,8 +255,7 @@
     function previewArquivo(input) {
       if (!input.files || !input.files[0]) return;
       var file = input.files[0];
-      nomeArquivo = file.name;
-      tipoArquivo = file.type;
+      nomeArquivo = file.name; tipoArquivo = file.type;
       var reader = new FileReader();
       reader.onload = function(e) {
         arquivoBase64 = e.target.result.split(',')[1];
@@ -230,8 +263,7 @@
         document.getElementById('upload-nome').style.display = 'block';
         if (file.type.startsWith('image/')) {
           var img = document.getElementById('preview-img');
-          img.src = e.target.result;
-          img.style.display = 'block';
+          img.src = e.target.result; img.style.display = 'block';
         }
         document.getElementById('err-comp').style.display = 'none';
       };
@@ -249,32 +281,16 @@
 
     function enviar() {
       if (!validar()) return;
-
       var nome = document.getElementById('nome').value.trim();
       var tel = document.getElementById('telefone').value.trim();
       var total = (qty * 5).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
-
       var btn = document.getElementById('btn-enviar');
       btn.disabled = true;
       document.getElementById('saving').style.display = 'block';
       document.getElementById('progress-wrap').style.display = 'block';
-
       var bar = document.getElementById('progress-bar');
       var p = 0;
-      var iv = setInterval(function() {
-        p = Math.min(p + Math.random() * 15, 90);
-        bar.style.width = p + '%';
-      }, 300);
-
-      var dados = {
-        nome: nome, telefone: tel, quantidade: qty,
-        total: 'R$ ' + total,
-        comprovante: arquivoBase64,
-        tipoArquivo: tipoArquivo,
-        nomeArquivo: nomeArquivo
-      };
-
-      // Monta o link do WhatsApp com os dados
+      var iv = setInterval(function() { p = Math.min(p + Math.random() * 15, 90); bar.style.width = p + '%'; }, 300);
       var msg =
         '🌸 *Ação entre Amigos — Fraternidade Filhas de Santa Clara*\n\n' +
         'Olá! Gostaria de confirmar meu pedido:\n\n' +
@@ -284,20 +300,16 @@
         '💰 *Total:* R$ ' + total + '\n\n' +
         '✅ Comprovante enviado pelo formulário.\n\nObrigada! 🙏';
       var wppUrl = 'https://wa.me/5583987521661?text=' + encodeURIComponent(msg);
-
       fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
+        method: 'POST', mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dados)
+        body: JSON.stringify({ nome: nome, telefone: tel, quantidade: qty, total: 'R$ ' + total, comprovante: arquivoBase64, tipoArquivo: tipoArquivo, nomeArquivo: nomeArquivo })
       }).finally(function() {
-        clearInterval(iv);
-        bar.style.width = '100%';
+        clearInterval(iv); bar.style.width = '100%';
         setTimeout(function() {
           document.getElementById('saving').style.display = 'none';
           document.getElementById('progress-wrap').style.display = 'none';
           document.getElementById('form-area').style.display = 'none';
-          // Define o link do WhatsApp no botão e mostra tela de sucesso
           document.getElementById('btn-whatsapp').href = wppUrl;
           document.getElementById('success-box').style.display = 'block';
           btn.disabled = false;
