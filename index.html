@@ -31,174 +31,80 @@
       letter-spacing: 0.8px;
       text-transform: uppercase;
     }
-    .header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: #2c2c2a;
-      margin-bottom: 6px;
-    }
+    .header h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #2c2c2a; margin-bottom: 6px; }
     .header p { font-size: 13px; color: #5f5e5a; }
-    .card {
-      background: #fff;
-      border: 1px solid #e0ddd6;
-      border-radius: 16px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-    }
-    .card-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #888780;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 14px;
-    }
+    .card { background: #fff; border: 1px solid #e0ddd6; border-radius: 16px; padding: 1.25rem; margin-bottom: 1rem; }
+    .card-title { font-size: 11px; font-weight: 700; color: #888780; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
     .premios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .premio-item { background: #f5f0ea; border-radius: 10px; padding: 10px; text-align: center; }
     .premio-num { font-size: 11px; color: #888780; margin-bottom: 4px; }
     .premio-val { font-size: 15px; font-weight: 700; color: #0F6E56; }
     .field { margin-bottom: 14px; }
     .field:last-child { margin-bottom: 0; }
-    .field label {
-      display: block;
-      font-size: 13px;
-      color: #5f5e5a;
-      margin-bottom: 6px;
-      font-weight: 700;
+    .field label { display: block; font-size: 13px; color: #5f5e5a; margin-bottom: 6px; font-weight: 700; }
+    .field input[type="text"], .field input[type="tel"] {
+      width: 100%; padding: 10px 14px; border: 1px solid #d3d1c7; border-radius: 10px;
+      font-size: 15px; font-family: 'Lato', sans-serif; color: #2c2c2a; background: #fff;
+      outline: none; transition: border-color 0.15s;
     }
-    .field input[type="text"],
-    .field input[type="tel"] {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid #d3d1c7;
-      border-radius: 10px;
-      font-size: 15px;
-      font-family: 'Lato', sans-serif;
-      color: #2c2c2a;
-      background: #fff;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    .field input[type="text"]:focus,
-    .field input[type="tel"]:focus { border-color: #0F6E56; }
-
-    /* Upload de comprovante */
+    .field input[type="text"]:focus, .field input[type="tel"]:focus { border-color: #0F6E56; }
     .upload-area {
-      border: 2px dashed #d3d1c7;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color 0.15s, background 0.15s;
-      position: relative;
+      border: 2px dashed #d3d1c7; border-radius: 10px; padding: 20px; text-align: center;
+      cursor: pointer; transition: border-color 0.15s, background 0.15s; position: relative;
     }
     .upload-area:hover { border-color: #0F6E56; background: #f5fff9; }
-    .upload-area input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-    }
+    .upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
     .upload-icon { font-size: 28px; margin-bottom: 6px; }
     .upload-text { font-size: 13px; color: #5f5e5a; }
     .upload-text strong { color: #0F6E56; }
-    .preview-img {
-      display: none;
-      width: 100%;
-      max-height: 200px;
-      object-fit: contain;
-      border-radius: 8px;
-      margin-top: 10px;
-      border: 1px solid #e0ddd6;
-    }
-    .upload-nome {
-      display: none;
-      font-size: 12px;
-      color: #0F6E56;
-      margin-top: 8px;
-      font-weight: 700;
-    }
-
+    .preview-img { display: none; width: 100%; max-height: 200px; object-fit: contain; border-radius: 8px; margin-top: 10px; border: 1px solid #e0ddd6; }
+    .upload-nome { display: none; font-size: 12px; color: #0F6E56; margin-top: 8px; font-weight: 700; }
     .error-msg { display: none; font-size: 12px; color: #D85A30; margin-top: 4px; }
     .qty-row { display: flex; align-items: center; gap: 12px; }
     .qty-btn {
-      width: 40px; height: 40px;
-      border: 1px solid #d3d1c7;
-      background: #f5f0ea;
-      border-radius: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2c2c2a;
-      flex-shrink: 0;
-      transition: background 0.15s;
+      width: 40px; height: 40px; border: 1px solid #d3d1c7; background: #f5f0ea;
+      border-radius: 10px; font-size: 20px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; color: #2c2c2a; flex-shrink: 0; transition: background 0.15s;
     }
     .qty-btn:hover { background: #e8e3db; }
     .qty-display { font-size: 20px; font-weight: 700; min-width: 32px; text-align: center; color: #2c2c2a; }
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 14px;
-      border-top: 1px solid #e0ddd6;
-      margin-top: 14px;
-    }
+    .total-row { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid #e0ddd6; margin-top: 14px; }
     .total-label { font-size: 14px; color: #5f5e5a; }
     .total-value { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #0F6E56; }
-    .btn-whatsapp {
-      width: 100%;
-      padding: 16px;
-      background: #25D366;
-      border: none;
-      border-radius: 14px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: 'Lato', sans-serif;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 4px;
-      transition: opacity 0.15s, transform 0.1s;
+    .btn-enviar {
+      width: 100%; padding: 16px; background: #0F6E56; border: none; border-radius: 14px;
+      color: #fff; font-size: 16px; font-weight: 700; font-family: 'Lato', sans-serif;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 4px; transition: opacity 0.15s;
     }
-    .btn-whatsapp:hover { opacity: 0.92; }
-    .btn-whatsapp:active { transform: scale(0.99); }
-    .btn-whatsapp:disabled { opacity: 0.6; cursor: not-allowed; }
-    .wpp-icon { width: 22px; height: 22px; flex-shrink: 0; }
-    .info { font-size: 12px; color: #888780; text-align: center; margin-top: 10px; }
+    .btn-enviar:hover { opacity: 0.92; }
+    .btn-enviar:disabled { opacity: 0.6; cursor: not-allowed; }
     .saving { display: none; font-size: 13px; color: #888780; text-align: center; margin-top: 8px; }
-    .progress-bar-wrap {
+    .progress-bar-wrap { display: none; background: #e0ddd6; border-radius: 10px; height: 6px; margin-top: 10px; overflow: hidden; }
+    .progress-bar { height: 100%; background: #0F6E56; border-radius: 10px; width: 0%; transition: width 0.3s; }
+
+    /* Tela de sucesso com botão WhatsApp */
+    .success-box {
       display: none;
-      background: #e0ddd6;
-      border-radius: 10px;
-      height: 6px;
-      margin-top: 10px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background: #0F6E56;
-      border-radius: 10px;
-      width: 0%;
-      transition: width 0.3s;
-    }
-    .success {
-      display: none;
-      background: #E1F5EE;
-      border: 1px solid #5DCAA5;
-      border-radius: 14px;
-      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #e0ddd6;
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
       text-align: center;
       margin-top: 1rem;
     }
-    .success p { color: #0F6E56; font-size: 14px; font-weight: 700; }
+    .success-box .check { font-size: 40px; margin-bottom: 10px; }
+    .success-box h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: #2c2c2a; margin-bottom: 6px; }
+    .success-box p { font-size: 13px; color: #5f5e5a; margin-bottom: 16px; }
+    .btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 16px; background: #25D366; border: none; border-radius: 14px;
+      color: #fff; font-size: 16px; font-weight: 700; font-family: 'Lato', sans-serif;
+      cursor: pointer; text-decoration: none; transition: opacity 0.15s;
+    }
+    .btn-whatsapp:hover { opacity: 0.92; }
+    .wpp-icon { width: 22px; height: 22px; flex-shrink: 0; }
+    .info { font-size: 12px; color: #888780; text-align: center; margin-top: 10px; }
     .footer { text-align: center; margin-top: 2rem; font-size: 12px; color: #888780; }
     .footer a { color: #0F6E56; text-decoration: none; }
   </style>
@@ -212,76 +118,84 @@
       <p>Rifa solidária · Sorteio: 11 de agosto de 2026</p>
     </div>
 
-    <div class="card">
-      <p class="card-title">Prêmios</p>
-      <div class="premios">
-        <div class="premio-item"><div class="premio-num">1º prêmio</div><div class="premio-val">R$ 1.000</div></div>
-        <div class="premio-item"><div class="premio-num">2º prêmio</div><div class="premio-val">R$ 500</div></div>
-        <div class="premio-item"><div class="premio-num">3º prêmio</div><div class="premio-val">R$ 500</div></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <p class="card-title">Seus dados</p>
-      <div class="field">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" />
-        <span class="error-msg" id="err-nome">Por favor, informe seu nome.</span>
-      </div>
-      <div class="field">
-        <label for="telefone">WhatsApp (com DDD)</label>
-        <input type="tel" id="telefone" placeholder="(83) 99999-9999" autocomplete="tel" />
-        <span class="error-msg" id="err-tel">Por favor, informe seu WhatsApp.</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <p class="card-title">Quantidade de bilhetes</p>
-      <div class="field">
-        <label>R$ 5,00 por bilhete</label>
-        <div class="qty-row">
-          <button class="qty-btn" onclick="changeQty(-1)" aria-label="Diminuir quantidade">−</button>
-          <span class="qty-display" id="qty-display">1</span>
-          <button class="qty-btn" onclick="changeQty(1)" aria-label="Aumentar quantidade">+</button>
+    <!-- FORMULÁRIO -->
+    <div id="form-area">
+      <div class="card">
+        <p class="card-title">Prêmios</p>
+        <div class="premios">
+          <div class="premio-item"><div class="premio-num">1º prêmio</div><div class="premio-val">R$ 1.000</div></div>
+          <div class="premio-item"><div class="premio-num">2º prêmio</div><div class="premio-val">R$ 500</div></div>
+          <div class="premio-item"><div class="premio-num">3º prêmio</div><div class="premio-val">R$ 500</div></div>
         </div>
       </div>
-      <div class="total-row">
-        <span class="total-label">Total a pagar</span>
-        <span class="total-value" id="total-display">R$ 5,00</span>
-      </div>
-    </div>
 
-    <div class="card">
-      <p class="card-title">Comprovante do Pix</p>
-      <div class="field">
-        <label>Anexe a foto ou print do comprovante</label>
-        <div class="upload-area" id="upload-area">
-          <input type="file" id="comprovante" accept="image/*,.pdf" onchange="previewArquivo(this)" />
-          <div class="upload-icon">📎</div>
-          <div class="upload-text">Toque aqui para escolher o arquivo<br><strong>JPG, PNG ou PDF</strong></div>
+      <div class="card">
+        <p class="card-title">Seus dados</p>
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" />
+          <span class="error-msg" id="err-nome">Por favor, informe seu nome.</span>
         </div>
-        <img class="preview-img" id="preview-img" alt="Preview do comprovante" />
-        <p class="upload-nome" id="upload-nome"></p>
-        <span class="error-msg" id="err-comp">Por favor, anexe o comprovante.</span>
+        <div class="field">
+          <label for="telefone">WhatsApp (com DDD)</label>
+          <input type="tel" id="telefone" placeholder="(83) 99999-9999" autocomplete="tel" />
+          <span class="error-msg" id="err-tel">Por favor, informe seu WhatsApp.</span>
+        </div>
       </div>
+
+      <div class="card">
+        <p class="card-title">Quantidade de bilhetes</p>
+        <div class="field">
+          <label>R$ 5,00 por bilhete</label>
+          <div class="qty-row">
+            <button class="qty-btn" onclick="changeQty(-1)" aria-label="Diminuir">−</button>
+            <span class="qty-display" id="qty-display">1</span>
+            <button class="qty-btn" onclick="changeQty(1)" aria-label="Aumentar">+</button>
+          </div>
+        </div>
+        <div class="total-row">
+          <span class="total-label">Total a pagar</span>
+          <span class="total-value" id="total-display">R$ 5,00</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="card-title">Comprovante do Pix</p>
+        <div class="field">
+          <label>Anexe a foto ou print do comprovante</label>
+          <div class="upload-area">
+            <input type="file" id="comprovante" accept="image/*,.pdf" onchange="previewArquivo(this)" />
+            <div class="upload-icon">📎</div>
+            <div class="upload-text">Toque aqui para escolher o arquivo<br><strong>JPG, PNG ou PDF</strong></div>
+          </div>
+          <img class="preview-img" id="preview-img" alt="Preview do comprovante" />
+          <p class="upload-nome" id="upload-nome"></p>
+          <span class="error-msg" id="err-comp">Por favor, anexe o comprovante.</span>
+        </div>
+      </div>
+
+      <button class="btn-enviar" id="btn-enviar" onclick="enviar()">
+        Registrar pedido
+      </button>
+      <p class="saving" id="saving">⏳ Enviando comprovante e registrando pedido...</p>
+      <div class="progress-bar-wrap" id="progress-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <p class="info">Após registrar, você será direcionada para confirmar pelo WhatsApp.</p>
     </div>
 
-    <button class="btn-whatsapp" id="btn-enviar" onclick="enviar()">
-      <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.112 1.524 5.84L.057 23.486a.5.5 0 00.606.61l5.788-1.516A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.002-1.366l-.358-.213-3.714.974.99-3.617-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
-      </svg>
-      Confirmar pedido pelo WhatsApp
-    </button>
-
-    <p class="saving" id="saving">⏳ Enviando comprovante e registrando pedido...</p>
-    <div class="progress-bar-wrap" id="progress-wrap">
-      <div class="progress-bar" id="progress-bar"></div>
-    </div>
-    <p class="info">Ao clicar, seu comprovante é salvo e o WhatsApp abre para confirmar.</p>
-
-    <div class="success" id="success-msg">
-      <p>✅ Pedido registrado com sucesso!<br>O WhatsApp foi aberto para confirmação. 🙏</p>
+    <!-- TELA DE SUCESSO -->
+    <div class="success-box" id="success-box">
+      <div class="check">✅</div>
+      <h2>Pedido registrado!</h2>
+      <p>Seu comprovante foi salvo com sucesso.<br>Agora toque no botão abaixo para confirmar pelo WhatsApp.</p>
+      <a class="btn-whatsapp" id="btn-whatsapp" href="#" target="_blank">
+        <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.112 1.524 5.84L.057 23.486a.5.5 0 00.606.61l5.788-1.516A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.002-1.366l-.358-.213-3.714.974.99-3.617-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+        </svg>
+        Confirmar pelo WhatsApp
+      </a>
     </div>
 
     <div class="footer">
@@ -309,13 +223,11 @@
       var file = input.files[0];
       nomeArquivo = file.name;
       tipoArquivo = file.type;
-
       var reader = new FileReader();
       reader.onload = function(e) {
         arquivoBase64 = e.target.result.split(',')[1];
         document.getElementById('upload-nome').textContent = '✅ ' + file.name;
         document.getElementById('upload-nome').style.display = 'block';
-
         if (file.type.startsWith('image/')) {
           var img = document.getElementById('preview-img');
           img.src = e.target.result;
@@ -329,24 +241,10 @@
     function validar() {
       var nome = document.getElementById('nome').value.trim();
       var tel = document.getElementById('telefone').value.trim();
-      var ok = true;
       document.getElementById('err-nome').style.display = nome ? 'none' : 'block';
       document.getElementById('err-tel').style.display = tel ? 'none' : 'block';
       document.getElementById('err-comp').style.display = arquivoBase64 ? 'none' : 'block';
-      if (!nome || !tel || !arquivoBase64) ok = false;
-      return ok;
-    }
-
-    function animarBarra() {
-      var bar = document.getElementById('progress-bar');
-      var wrap = document.getElementById('progress-wrap');
-      wrap.style.display = 'block';
-      var p = 0;
-      var iv = setInterval(function() {
-        p = Math.min(p + Math.random() * 15, 90);
-        bar.style.width = p + '%';
-      }, 300);
-      return { iv: iv, bar: bar, wrap: wrap };
+      return nome && tel && arquivoBase64;
     }
 
     function enviar() {
@@ -359,52 +257,52 @@
       var btn = document.getElementById('btn-enviar');
       btn.disabled = true;
       document.getElementById('saving').style.display = 'block';
+      document.getElementById('progress-wrap').style.display = 'block';
 
-      var prog = animarBarra();
+      var bar = document.getElementById('progress-bar');
+      var p = 0;
+      var iv = setInterval(function() {
+        p = Math.min(p + Math.random() * 15, 90);
+        bar.style.width = p + '%';
+      }, 300);
 
       var dados = {
-        nome: nome,
-        telefone: tel,
-        quantidade: qty,
+        nome: nome, telefone: tel, quantidade: qty,
         total: 'R$ ' + total,
         comprovante: arquivoBase64,
         tipoArquivo: tipoArquivo,
         nomeArquivo: nomeArquivo
       };
 
+      // Monta o link do WhatsApp com os dados
+      var msg =
+        '🌸 *Ação entre Amigos — Fraternidade Filhas de Santa Clara*\n\n' +
+        'Olá! Gostaria de confirmar meu pedido:\n\n' +
+        '👤 *Nome:* ' + nome + '\n' +
+        '📱 *WhatsApp:* ' + tel + '\n' +
+        '🎟️ *Quantidade:* ' + qty + ' bilhete' + (qty > 1 ? 's' : '') + '\n' +
+        '💰 *Total:* R$ ' + total + '\n\n' +
+        '✅ Comprovante enviado pelo formulário.\n\nObrigada! 🙏';
+      var wppUrl = 'https://wa.me/5583987521661?text=' + encodeURIComponent(msg);
+
       fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados)
-      }).then(function() {
-        finalizar(prog, nome, tel, total);
-      }).catch(function() {
-        finalizar(prog, nome, tel, total);
+      }).finally(function() {
+        clearInterval(iv);
+        bar.style.width = '100%';
+        setTimeout(function() {
+          document.getElementById('saving').style.display = 'none';
+          document.getElementById('progress-wrap').style.display = 'none';
+          document.getElementById('form-area').style.display = 'none';
+          // Define o link do WhatsApp no botão e mostra tela de sucesso
+          document.getElementById('btn-whatsapp').href = wppUrl;
+          document.getElementById('success-box').style.display = 'block';
+          btn.disabled = false;
+        }, 600);
       });
-    }
-
-    function finalizar(prog, nome, tel, total) {
-      clearInterval(prog.iv);
-      prog.bar.style.width = '100%';
-      setTimeout(function() {
-        prog.wrap.style.display = 'none';
-        document.getElementById('saving').style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-        document.getElementById('btn-enviar').disabled = false;
-
-        var msg =
-          '🌸 *Ação entre Amigos — Fraternidade Filhas de Santa Clara*\n\n' +
-          'Olá! Gostaria de confirmar meu pedido:\n\n' +
-          '👤 *Nome:* ' + nome + '\n' +
-          '📱 *WhatsApp:* ' + tel + '\n' +
-          '🎟️ *Quantidade:* ' + qty + ' bilhete' + (qty > 1 ? 's' : '') + '\n' +
-          '💰 *Total:* R$ ' + total + '\n\n' +
-          '✅ Comprovante enviado pelo formulário.\n\nObrigada! 🙏';
-
-        var url = 'https://wa.me/5583987521661?text=' + encodeURIComponent(msg);
-        window.location.href = url;
-      }, 500);
     }
   </script>
 </body>
