@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ação entre Amigos — Fraternidade Filhas de Santa Clara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f5f0ea;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #E1F5EE;
+      color: #0F6E56;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c2c2a;
+      margin-bottom: 6px;
+    }
+
+    .header p {
+      font-size: 13px;
+      color: #5f5e5a;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0ddd6;
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888780;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+
+    .premios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .premio-item {
+      background: #f5f0ea;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .premio-num {
+      font-size: 11px;
+      color: #888780;
+      margin-bottom: 4px;
+    }
+
+    .premio-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0F6E56;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: #5f5e5a;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #d3d1c7;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Lato', sans-serif;
+      color: #2c2c2a;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .field input:focus {
+      border-color: #0F6E56;
+    }
+
+    .error-msg {
+      display: none;
+      font-size: 12px;
+      color: #D85A30;
+      margin-top: 4px;
+    }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qty-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d3d1c7;
+      background: #f5f0ea;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2c2c2a;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .qty-btn:hover { background: #e8e3db; }
+
+    .qty-display {
+      font-size: 20px;
+      font-weight: 700;
+      min-width: 32px;
+      text-align: center;
+      color: #2c2c2a;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #e0ddd6;
+      margin-top: 14px;
+    }
+
+    .total-label {
+      font-size: 14px;
+      color: #5f5e5a;
+    }
+
+    .total-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0F6E56;
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      padding: 16px;
+      background: #25D366;
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 4px;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    .btn-whatsapp:hover { opacity: 0.92; }
+    .btn-whatsapp:active { transform: scale(0.99); }
+    .btn-whatsapp:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .wpp-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .info {
+      font-size: 12px;
+      color: #888780;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .saving {
+      display: none;
+      font-size: 13px;
+      color: #888780;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .success {
+      display: none;
+      background: #E1F5EE;
+      border: 1px solid #5DCAA5;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .success p {
+      color: #0F6E56;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 12px;
+      color: #888780;
+    }
+
+    .footer a {
+      color: #0F6E56;
+      text-decoration: none;
+    }
+
+    @media (max-width: 400px) {
+      .header h1 { font-size: 22px; }
+      .premios { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="badge">Fraternidade Filhas de Santa Clara</div>
+      <h1>Ação entre Amigos 🌸</h1>
+      <p>Rifa solidária · Sorteio: 11 de agosto de 2026</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Prêmios</p>
+      <div class="premios">
+        <div class="premio-item">
+          <div class="premio-num">1º prêmio</div>
+          <div class="premio-val">R$ 1.000</div>
+        </div>
+        <div class="premio-item">
+          <div class="premio-num">2º prêmio</div>
+          <div class="premio-val">R$ 500</div>
+        </div>
+        <div class="premio-item">
+          <div class="premio-num">3º prêmio</div>
+          <div class="premio-val">R$ 500</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Seus dados</p>
+      <div class="field">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name" />
+        <span class="error-msg" id="err-nome">Por favor, informe seu nome.</span>
+      </div>
+      <div class="field">
+        <label for="telefone">WhatsApp (com DDD)</label>
+        <input type="tel" id="telefone" placeholder="(83) 99999-9999" autocomplete="tel" />
+        <span class="error-msg" id="err-tel">Por favor, informe seu WhatsApp.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Quantidade de bilhetes</p>
+      <div class="field">
+        <label>R$ 5,00 por bilhete</label>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="changeQty(-1)" aria-label="Diminuir quantidade">−</button>
+          <span class="qty-display" id="qty-display">1</span>
+          <button class="qty-btn" onclick="changeQty(1)" aria-label="Aumentar quantidade">+</button>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Total a pagar</span>
+        <span class="total-value" id="total-display">R$ 5,00</span>
+      </div>
+    </div>
+
+    <button class="btn-whatsapp" id="btn-enviar" onclick="enviar()">
+      <svg class="wpp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.112 1.524 5.84L.057 23.486a.5.5 0 00.606.61l5.788-1.516A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.002-1.366l-.358-.213-3.714.974.99-3.617-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+      </svg>
+      Confirmar pedido pelo WhatsApp
+    </button>
+
+    <p class="saving" id="saving">⏳ Registrando seu pedido...</p>
+    <p class="info">Ao clicar, seu pedido é salvo e o WhatsApp abre para confirmar o pagamento via Pix.</p>
+
+    <div class="success" id="success-msg">
+      <p>✅ Pedido registrado com sucesso!<br>O WhatsApp foi aberto para confirmar o pagamento.</p>
+    </div>
+
+    <div class="footer">
+      <p>📲 <a href="https://instagram.com/fraternidadefsc">@fraternidadefsc</a></p>
+      <p style="margin-top:6px;">R. Antônio Pádua Vasconcelos, 140 · João Pessoa/PB</p>
+    </div>
+
+  </div>
+
+  <script>
+    var qty = 1;
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzZEV93ltG5cg0e6TusJqoofbAIF1XD_jpeED2blvK3Rn12McJuraU-RWDJmu_zWxeI/exec';
+
+    function changeQty(delta) {
+      qty = Math.max(1, qty + delta);
+      document.getElementById('qty-display').textContent = qty;
+      document.getElementById('total-display').textContent = 'R$ ' + (qty * 5).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+    }
+
+    function validar() {
+      var nome = document.getElementById('nome').value.trim();
+      var tel = document.getElementById('telefone').value.trim();
+      document.getElementById('err-nome').style.display = nome ? 'none' : 'block';
+      document.getElementById('err-tel').style.display = tel ? 'none' : 'block';
+      return nome && tel;
+    }
+
+    function enviar() {
+      if (!validar()) return;
+
+      var nome = document.getElementById('nome').value.trim();
+      var tel = document.getElementById('telefone').value.trim();
+      var total = (qty * 5).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+      var btn = document.getElementById('btn-enviar');
+      btn.disabled = true;
+      document.getElementById('saving').style.display = 'block';
+
+      var dados = { nome: nome, telefone: tel, quantidade: qty, total: 'R$ ' + total };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
+      }).then(function () {
+        finalizar(nome, tel, total);
+      }).catch(function () {
+        finalizar(nome, tel, total);
+      });
+    }
+
+    function finalizar(nome, tel, total) {
+      document.getElementById('saving').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      document.getElementById('btn-enviar').disabled = false;
+
+      var msg =
+        '🌸 *Ação entre Amigos — Fraternidade Filhas de Santa Clara*\n\n' +
+        'Olá! Gostaria de reservar meus bilhetes:\n\n' +
+        '👤 *Nome:* ' + nome + '\n' +
+        '📱 *WhatsApp:* ' + tel + '\n' +
+        '🎟️ *Quantidade:* ' + qty + ' bilhete' + (qty > 1 ? 's' : '') + '\n' +
+        '💰 *Total:* R$ ' + total + '\n\n' +
+        'Aguardo as instruções para o pagamento via Pix. 🙏';
+
+      var url = 'https://wa.me/5583987521661?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
